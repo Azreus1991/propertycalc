@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 
 /* ────────────────────────────────────────────────────────
@@ -180,11 +181,11 @@ export default function PaintEstimatorPage() {
       {/* Page header */}
       <div className="max-w-3xl mb-12">
         <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-          <a href="/" className="hover:text-amber-600 transition-colors">Home</a>
+          <a href="/" className="hover:text-brand-600 transition-colors">Home</a>
           <span>/</span>
           <span className="text-slate-600">Paint Cost Estimator</span>
         </nav>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-navy-950">
           Paint Cost Estimator
         </h1>
         <p className="mt-4 text-lg text-slate-500 leading-relaxed">
@@ -198,8 +199,8 @@ export default function PaintEstimatorPage() {
         {/* Input Panel */}
         <div className="lg:col-span-2 space-y-6">
           {/* Project Settings */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-7">
-            <h2 className="text-lg font-bold text-slate-900 mb-6">
+          <div className="card p-7">
+            <h2 className="text-lg font-bold text-navy-950 mb-6">
               Project Settings
             </h2>
 
@@ -248,9 +249,9 @@ export default function PaintEstimatorPage() {
                     type="checkbox"
                     checked={includeCeiling}
                     onChange={(e) => setIncludeCeiling(e.target.checked)}
-                    className="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                    className="w-5 h-5 rounded border-slate-300 text-brand-500 focus:ring-amber-500"
                   />
-                  <span className="text-sm text-slate-700 group-hover:text-slate-900">
+                  <span className="text-sm text-slate-700 group-hover:text-navy-950">
                     Include ceilings
                   </span>
                 </label>
@@ -259,9 +260,9 @@ export default function PaintEstimatorPage() {
                     type="checkbox"
                     checked={includeTrim}
                     onChange={(e) => setIncludeTrim(e.target.checked)}
-                    className="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                    className="w-5 h-5 rounded border-slate-300 text-brand-500 focus:ring-amber-500"
                   />
-                  <span className="text-sm text-slate-700 group-hover:text-slate-900">
+                  <span className="text-sm text-slate-700 group-hover:text-navy-950">
                     Include trim and baseboards
                   </span>
                 </label>
@@ -270,9 +271,9 @@ export default function PaintEstimatorPage() {
                     type="checkbox"
                     checked={usePrimer}
                     onChange={(e) => setUsePrimer(e.target.checked)}
-                    className="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                    className="w-5 h-5 rounded border-slate-300 text-brand-500 focus:ring-amber-500"
                   />
-                  <span className="text-sm text-slate-700 group-hover:text-slate-900">
+                  <span className="text-sm text-slate-700 group-hover:text-navy-950">
                     Use primer (recommended for new drywall or color changes)
                   </span>
                 </label>
@@ -281,9 +282,9 @@ export default function PaintEstimatorPage() {
                     type="checkbox"
                     checked={hirePro}
                     onChange={(e) => setHirePro(e.target.checked)}
-                    className="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                    className="w-5 h-5 rounded border-slate-300 text-brand-500 focus:ring-amber-500"
                   />
-                  <span className="text-sm text-slate-700 group-hover:text-slate-900">
+                  <span className="text-sm text-slate-700 group-hover:text-navy-950">
                     Hire a professional painter
                   </span>
                 </label>
@@ -294,12 +295,12 @@ export default function PaintEstimatorPage() {
           {/* Room Cards */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-bold text-slate-900">
+              <h2 className="text-lg font-bold text-navy-950">
                 Rooms ({rooms.length})
               </h2>
               <button
                 onClick={addRoom}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-amber-600 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-brand-600 bg-brand-50 hover:bg-brand-100 rounded-lg transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -311,14 +312,14 @@ export default function PaintEstimatorPage() {
             {rooms.map((room, idx) => (
               <div
                 key={room.id}
-                className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5"
+                className="card p-5"
               >
                 <div className="flex items-center justify-between mb-4">
                   <input
                     type="text"
                     value={room.name}
                     onChange={(e) => updateRoom(room.id, "name", e.target.value)}
-                    className="text-sm font-bold text-slate-900 bg-transparent border-b border-dashed border-slate-300 focus:border-amber-500 focus:outline-none pb-0.5"
+                    className="text-sm font-bold text-navy-950 bg-transparent border-b border-dashed border-slate-300 focus:border-brand-500 focus:outline-none pb-0.5"
                     placeholder="Room name"
                   />
                   {rooms.length > 1 && (
@@ -426,7 +427,7 @@ export default function PaintEstimatorPage() {
                   <p className="text-sm font-medium text-slate-500">
                     Paint Needed
                   </p>
-                  <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+                  <p className="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-2">
                     {result.totalGallons} gal
                   </p>
                   <p className="text-sm text-slate-400 mt-1">
@@ -439,21 +440,21 @@ export default function PaintEstimatorPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-4 text-center">
                   <p className="text-xs font-medium text-slate-400">Paint Cost</p>
-                  <p className="text-lg font-bold text-slate-900 mt-1">{formatUSD(result.totalPaintCost)}</p>
+                  <p className="text-lg font-bold text-navy-950 mt-1">{formatUSD(result.totalPaintCost)}</p>
                 </div>
                 <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-4 text-center">
                   <p className="text-xs font-medium text-slate-400">Primer</p>
-                  <p className="text-lg font-bold text-slate-900 mt-1">
+                  <p className="text-lg font-bold text-navy-950 mt-1">
                     {result.totalPrimerCost > 0 ? formatUSD(result.totalPrimerCost) : "N/A"}
                   </p>
                 </div>
                 <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-4 text-center">
                   <p className="text-xs font-medium text-slate-400">Supplies</p>
-                  <p className="text-lg font-bold text-slate-900 mt-1">{formatUSD(result.suppliesCost)}</p>
+                  <p className="text-lg font-bold text-navy-950 mt-1">{formatUSD(result.suppliesCost)}</p>
                 </div>
                 <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-4 text-center">
                   <p className="text-xs font-medium text-slate-400">Labor</p>
-                  <p className="text-lg font-bold text-slate-900 mt-1">
+                  <p className="text-lg font-bold text-navy-950 mt-1">
                     {result.laborCost > 0 ? formatUSD(result.laborCost) : "DIY"}
                   </p>
                 </div>
@@ -476,9 +477,9 @@ export default function PaintEstimatorPage() {
               </div>
 
               {/* Room-by-Room Breakdown Table */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+              <div className="card overflow-hidden">
                 <div className="px-6 py-5 border-b border-slate-100">
-                  <h3 className="text-lg font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-navy-950">
                     Room-by-Room Breakdown
                   </h3>
                   <p className="text-sm text-slate-400 mt-1">
@@ -517,7 +518,7 @@ export default function PaintEstimatorPage() {
                           <td className="px-4 py-3.5 text-right font-semibold text-slate-700">
                             {room.gallonsNeeded}
                           </td>
-                          <td className="px-6 py-3.5 text-right font-semibold text-slate-900">
+                          <td className="px-6 py-3.5 text-right font-semibold text-navy-950">
                             {formatUSD(room.paintCost)}
                           </td>
                         </tr>
@@ -525,7 +526,7 @@ export default function PaintEstimatorPage() {
                     </tbody>
                     <tfoot>
                       <tr className="bg-slate-50 font-bold">
-                        <td className="px-6 py-3.5 text-slate-900">Total</td>
+                        <td className="px-6 py-3.5 text-navy-950">Total</td>
                         <td className="px-4 py-3.5 text-right text-slate-700">
                           {result.rooms.reduce((s, r) => s + Math.round(r.netWallArea), 0).toLocaleString()} sqft
                         </td>
@@ -537,10 +538,10 @@ export default function PaintEstimatorPage() {
                         <td className="px-4 py-3.5 text-right text-slate-700">
                           {Math.round(result.totalPaintableArea).toLocaleString()} sqft
                         </td>
-                        <td className="px-4 py-3.5 text-right text-slate-900">
+                        <td className="px-4 py-3.5 text-right text-navy-950">
                           {result.totalGallons}
                         </td>
-                        <td className="px-6 py-3.5 text-right text-slate-900">
+                        <td className="px-6 py-3.5 text-right text-navy-950">
                           {formatUSD(result.totalPaintCost)}
                         </td>
                       </tr>
@@ -550,8 +551,8 @@ export default function PaintEstimatorPage() {
               </div>
 
               {/* Cost Distribution Bar Chart */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">
+              <div className="card p-6">
+                <h3 className="text-lg font-bold text-navy-950 mb-4">
                   Cost Distribution
                 </h3>
                 <div className="space-y-3">
@@ -579,12 +580,12 @@ export default function PaintEstimatorPage() {
               </div>
 
               {/* Tips Section */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">
+              <div className="card p-6">
+                <h3 className="text-lg font-bold text-navy-950 mb-4">
                   Painting Tips
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-amber-50 rounded-xl p-4">
+                  <div className="bg-brand-50 rounded-xl p-4">
                     <p className="text-sm font-semibold text-amber-800 mb-1">Paint Quality Matters</p>
                     <p className="text-xs text-amber-700 leading-relaxed">
                       Premium paints have higher pigment concentration, meaning better
@@ -620,7 +621,7 @@ export default function PaintEstimatorPage() {
               </div>
             </>
           ) : (
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-12 text-center">
+            <div className="card p-12 text-center">
               <p className="text-slate-400">
                 Enter valid room dimensions to see your paint cost estimate.
               </p>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 
 /* ────────────────────────────────────────────────────────
@@ -195,11 +196,11 @@ export default function RoofCalculatorPage() {
       {/* Header */}
       <div className="max-w-3xl mb-12">
         <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-          <a href="/" className="hover:text-amber-600 transition-colors">Home</a>
+          <a href="/" className="hover:text-brand-600 transition-colors">Home</a>
           <span>/</span>
           <span className="text-slate-600">Roof Repair vs Replace</span>
         </nav>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-navy-950">
           Roof Repair vs Replace Calculator
         </h1>
         <p className="mt-4 text-lg text-slate-500 leading-relaxed">
@@ -210,8 +211,8 @@ export default function RoofCalculatorPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
         {/* Input Panel */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-7">
-          <h2 className="text-lg font-bold text-slate-900 mb-6">Roof Details</h2>
+        <div className="lg:col-span-2 card p-7">
+          <h2 className="text-lg font-bold text-navy-950 mb-6">Roof Details</h2>
 
           <div className="space-y-5">
             <div>
@@ -312,11 +313,11 @@ export default function RoofCalculatorPage() {
               </div>
 
               {/* Roof Life Bar */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">Roof Life Used</h3>
+              <div className="card p-6">
+                <h3 className="text-lg font-bold text-navy-950 mb-4">Roof Life Used</h3>
                 <div className="w-full bg-slate-100 rounded-full h-5 overflow-hidden">
                   <div
-                    className={`h-5 rounded-full transition-all duration-700 ${result.usedLifePct > 80 ? "bg-red-500" : result.usedLifePct > 60 ? "bg-amber-500" : "bg-emerald-500"}`}
+                    className={`h-5 rounded-full transition-all duration-700 ${result.usedLifePct > 80 ? "bg-red-500" : result.usedLifePct > 60 ? "bg-brand-500" : "bg-emerald-500"}`}
                     style={{ width: `${Math.min(result.usedLifePct, 100)}%` }}
                   />
                 </div>
@@ -331,12 +332,12 @@ export default function RoofCalculatorPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className={`result-card rounded-2xl p-6 border-2 ${result.recommendation === "repair" ? "border-emerald-300 bg-emerald-50" : "border-slate-200 bg-white"}`}>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-bold text-slate-900">Repair</h3>
+                    <h3 className="text-lg font-bold text-navy-950">Repair</h3>
                     {result.recommendation === "repair" && (
                       <span className="text-xs font-bold bg-emerald-500 text-white px-2.5 py-1 rounded-full">RECOMMENDED</span>
                     )}
                   </div>
-                  <p className="text-3xl font-extrabold text-slate-900">{formatUSD(result.repairCost)}</p>
+                  <p className="text-3xl font-extrabold text-navy-950">{formatUSD(result.repairCost)}</p>
                   <div className="mt-4 space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-slate-500">Extends life by</span>
@@ -353,14 +354,14 @@ export default function RoofCalculatorPage() {
                   </div>
                 </div>
 
-                <div className={`result-card rounded-2xl p-6 border-2 ${result.recommendation === "replace" ? "border-amber-300 bg-amber-50" : "border-slate-200 bg-white"}`}>
+                <div className={`result-card rounded-2xl p-6 border-2 ${result.recommendation === "replace" ? "border-brand-300 bg-brand-50" : "border-slate-200 bg-white"}`}>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-bold text-slate-900">Replace</h3>
+                    <h3 className="text-lg font-bold text-navy-950">Replace</h3>
                     {result.recommendation === "replace" && (
-                      <span className="text-xs font-bold bg-amber-500 text-white px-2.5 py-1 rounded-full">RECOMMENDED</span>
+                      <span className="text-xs font-bold bg-brand-500 text-white px-2.5 py-1 rounded-full">RECOMMENDED</span>
                     )}
                   </div>
-                  <p className="text-3xl font-extrabold text-slate-900">{formatUSD(result.replacementCost)}</p>
+                  <p className="text-3xl font-extrabold text-navy-950">{formatUSD(result.replacementCost)}</p>
                   <p className="text-xs text-slate-400 mt-1">Range: {formatUSD(result.replaceLow)} &ndash; {formatUSD(result.replaceHigh)}</p>
                   <div className="mt-4 space-y-2 text-sm">
                     <div className="flex justify-between">
@@ -392,7 +393,7 @@ export default function RoofCalculatorPage() {
               </div>
             </>
           ) : (
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-12 text-center">
+            <div className="card p-12 text-center">
               <p className="text-slate-400">Enter your roof details to see a repair vs replace analysis.</p>
             </div>
           )}
@@ -400,9 +401,9 @@ export default function RoofCalculatorPage() {
       </div>
 
       {/* Material Comparison Table */}
-      <div className="mt-16 bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+      <div className="mt-16 card overflow-hidden">
         <div className="px-6 py-5 border-b border-slate-100">
-          <h3 className="text-lg font-bold text-slate-900">Roofing Material Comparison</h3>
+          <h3 className="text-lg font-bold text-navy-950">Roofing Material Comparison</h3>
           <p className="text-sm text-slate-400 mt-1">Compare lifespan, cost, and trade-offs for common materials</p>
         </div>
         <div className="overflow-x-auto">
@@ -418,8 +419,8 @@ export default function RoofCalculatorPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {Object.entries(materials).map(([key, m]) => (
-                <tr key={key} className={key === material ? "bg-amber-50" : "hover:bg-slate-50"}>
-                  <td className="px-6 py-3.5 font-medium text-slate-900 whitespace-nowrap">
+                <tr key={key} className={key === material ? "bg-brand-50" : "hover:bg-slate-50"}>
+                  <td className="px-6 py-3.5 font-medium text-navy-950 whitespace-nowrap">
                     {m.label}
                     {key === material && <span className="ml-2 text-xs bg-amber-200 text-amber-800 px-2 py-0.5 rounded-full">Selected</span>}
                   </td>

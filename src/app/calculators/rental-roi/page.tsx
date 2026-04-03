@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 
 /* ────────────────────────────────────────────────────────
@@ -154,11 +155,11 @@ export default function RentalRoiPage() {
       {/* Page header */}
       <div className="max-w-3xl mb-12">
         <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-          <a href="/" className="hover:text-amber-600 transition-colors">Home</a>
+          <a href="/" className="hover:text-brand-600 transition-colors">Home</a>
           <span>/</span>
           <span className="text-slate-600">Rental Property ROI</span>
         </nav>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-navy-950">
           Rental Property ROI Calculator
         </h1>
         <p className="mt-4 text-lg text-slate-500 leading-relaxed">
@@ -170,8 +171,8 @@ export default function RentalRoiPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
         {/* Input Panel */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-7">
-          <h2 className="text-lg font-bold text-slate-900 mb-6">
+        <div className="lg:col-span-2 card p-7">
+          <h2 className="text-lg font-bold text-navy-950 mb-6">
             Property Details
           </h2>
 
@@ -241,7 +242,7 @@ export default function RentalRoiPage() {
 
             {/* Divider */}
             <div className="border-t border-slate-100 pt-2">
-              <h3 className="text-sm font-semibold text-slate-900 mb-4">
+              <h3 className="text-sm font-semibold text-navy-950 mb-4">
                 Income
               </h3>
             </div>
@@ -289,7 +290,7 @@ export default function RentalRoiPage() {
 
             {/* Divider */}
             <div className="border-t border-slate-100 pt-2">
-              <h3 className="text-sm font-semibold text-slate-900 mb-4">
+              <h3 className="text-sm font-semibold text-navy-950 mb-4">
                 Annual Expenses
               </h3>
             </div>
@@ -455,7 +456,7 @@ export default function RentalRoiPage() {
                   <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
                     Cap Rate
                   </p>
-                  <p className="text-2xl font-extrabold text-slate-900 mt-1">
+                  <p className="text-2xl font-extrabold text-navy-950 mt-1">
                     {formatPct(result.capRate)}
                   </p>
                 </div>
@@ -463,7 +464,7 @@ export default function RentalRoiPage() {
                   <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
                     Break-Even Occ.
                   </p>
-                  <p className="text-2xl font-extrabold text-slate-900 mt-1">
+                  <p className="text-2xl font-extrabold text-navy-950 mt-1">
                     {formatPct(Math.min(result.breakEvenOccupancy, 100))}
                   </p>
                 </div>
@@ -471,7 +472,7 @@ export default function RentalRoiPage() {
                   <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
                     5-Year Total ROI
                   </p>
-                  <p className="text-2xl font-extrabold text-slate-900 mt-1">
+                  <p className="text-2xl font-extrabold text-navy-950 mt-1">
                     {formatPct(result.totalRoi5yr, 0)}
                   </p>
                 </div>
@@ -479,7 +480,7 @@ export default function RentalRoiPage() {
                   <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
                     10-Year Total ROI
                   </p>
-                  <p className="text-2xl font-extrabold text-slate-900 mt-1">
+                  <p className="text-2xl font-extrabold text-navy-950 mt-1">
                     {formatPct(result.totalRoi10yr, 0)}
                   </p>
                 </div>
@@ -500,9 +501,9 @@ export default function RentalRoiPage() {
               </div>
 
               {/* Income vs Expense Breakdown Table */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+              <div className="card overflow-hidden">
                 <div className="px-6 py-5 border-b border-slate-100">
-                  <h3 className="text-lg font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-navy-950">
                     Income vs. Expense Breakdown
                   </h3>
                   <p className="text-sm text-slate-400 mt-1">
@@ -523,7 +524,7 @@ export default function RentalRoiPage() {
                         item.type === "subtotal" ? "bg-slate-50 font-semibold" : ""
                       }`}
                     >
-                      <span className={`text-sm ${item.type === "subtotal" ? "font-bold text-slate-900" : "font-medium text-slate-700"}`}>
+                      <span className={`text-sm ${item.type === "subtotal" ? "font-bold text-navy-950" : "font-medium text-slate-700"}`}>
                         {item.name}
                       </span>
                       <span className={`text-sm ${item.amount < 0 ? "text-red-600" : "text-emerald-600"} ${item.type === "subtotal" ? "font-bold" : "font-semibold"}`}>
@@ -561,7 +562,7 @@ export default function RentalRoiPage() {
 
                   {/* Totals */}
                   <div className="flex items-center justify-between px-6 py-3.5 bg-slate-50">
-                    <span className="text-sm font-bold text-slate-900">
+                    <span className="text-sm font-bold text-navy-950">
                       Total Annual Expenses
                     </span>
                     <span className="text-sm font-bold text-red-600">
@@ -580,8 +581,8 @@ export default function RentalRoiPage() {
               </div>
 
               {/* Bar chart: Income vs Expenses */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">
+              <div className="card p-6">
+                <h3 className="text-lg font-bold text-navy-950 mb-4">
                   Income vs. Expenses
                 </h3>
                 <div className="space-y-4">
@@ -647,9 +648,9 @@ export default function RentalRoiPage() {
               </div>
 
               {/* Vacancy Scenario Analysis */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+              <div className="card overflow-hidden">
                 <div className="px-6 py-5 border-b border-slate-100">
-                  <h3 className="text-lg font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-navy-950">
                     Scenario: What if Vacancy Increases?
                   </h3>
                   <p className="text-sm text-slate-400 mt-1">
@@ -683,14 +684,14 @@ export default function RentalRoiPage() {
                             key={scenario.vacancyRate}
                             className={`transition-colors ${
                               isActive
-                                ? "bg-amber-50 font-semibold"
+                                ? "bg-brand-50 font-semibold"
                                 : "hover:bg-slate-50"
                             }`}
                           >
                             <td className="px-6 py-3 text-slate-700">
                               {scenario.vacancyRate}%
                               {isActive && (
-                                <span className="ml-2 text-xs text-amber-600 font-medium">
+                                <span className="ml-2 text-xs text-brand-600 font-medium">
                                   (current)
                                 </span>
                               )}
@@ -713,7 +714,7 @@ export default function RentalRoiPage() {
               </div>
             </>
           ) : (
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-12 text-center">
+            <div className="card p-12 text-center">
               <p className="text-slate-400">
                 Enter your property details to see your rental ROI analysis.
               </p>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | PropertyCalc",
   },
   description:
-    "Free, accurate calculators for homeowners, landlords, and property managers. Estimate maintenance costs, rental ROI, contractor quotes, and more.",
+    "The most comprehensive free property toolkit on the web. Accurate calculators, expert guides, and resources for homeowners, landlords, investors, and property managers.",
   keywords: [
     "property maintenance calculator",
     "home maintenance cost estimator",
@@ -19,14 +19,23 @@ export const metadata: Metadata = {
     "roof replacement calculator",
     "landlord tools",
     "property management calculators",
+    "real estate investment tools",
+    "homeowner resources",
+    "property budget planner",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "PropertyCalc",
-    title: "PropertyCalc — Free Property & Maintenance Calculators",
+    title: "PropertyCalc — Free Property & Real Estate Calculators",
     description:
-      "Accurate, free calculators for homeowners and landlords. Budget maintenance, compare quotes, calculate ROI.",
+      "Accurate, free calculators and expert resources for homeowners, landlords, and investors. Make smarter property decisions backed by real data.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PropertyCalc — Free Property & Real Estate Calculators",
+    description:
+      "Make smarter property decisions. Free calculators for maintenance budgets, rental ROI, contractor quotes, and more.",
   },
 };
 
@@ -36,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -45,11 +54,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

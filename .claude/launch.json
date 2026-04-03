@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "propertycalc",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "out", "-l", "3456"],
-      "port": 3456
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\npx.cmd",
+      "runtimeArgs": ["next", "dev", "--port", "3000"],
+      "port": 3000
     }
   ]
 }

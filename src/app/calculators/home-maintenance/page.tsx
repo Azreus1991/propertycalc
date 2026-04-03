@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
-import type { Metadata } from "next";
 
 /* ────────────────────────────────────────────────────────
    METHODOLOGY
@@ -107,28 +107,32 @@ export default function HomeMaintenancePage() {
   }, [homeValue, sqft, age, region, condition, hasPool, hasOldRoof]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Page header */}
-      <div className="max-w-3xl mb-12">
-        <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-          <a href="/" className="hover:text-amber-600 transition-colors">Home</a>
-          <span>/</span>
-          <span className="text-slate-600">Home Maintenance Budget</span>
-        </nav>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-          Home Maintenance Budget Estimator
-        </h1>
-        <p className="mt-4 text-lg text-slate-500 leading-relaxed">
-          Find out how much you should set aside each year for home
-          maintenance. Based on the industry-standard 1% rule and square footage
-          method, adjusted for your home&apos;s age, location, and condition.
-        </p>
-      </div>
+    <>
+      <section className="bg-hero-gradient relative overflow-hidden">
+        <div className="absolute inset-0 dotted-bg opacity-[0.04]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
+            <Link href="/calculators" className="hover:text-brand-400 transition-colors">Calculators</Link>
+            <span>/</span>
+            <span className="text-white">Maintenance Budget</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Home Maintenance Budget Estimator
+          </h1>
+          <p className="mt-3 text-slate-300 max-w-2xl">
+            Find out how much you should set aside each year for home
+            maintenance. Based on the industry-standard 1% rule and square footage
+            method, adjusted for your home&apos;s age, location, and condition.
+          </p>
+        </div>
+      </section>
+
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
         {/* Input Panel */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-7">
-          <h2 className="text-lg font-bold text-slate-900 mb-6">
+        <div className="lg:col-span-2 card p-7">
+          <h2 className="text-lg font-bold text-navy-950 mb-6">
             Your Home Details
           </h2>
 
@@ -233,7 +237,7 @@ export default function HomeMaintenancePage() {
                   onChange={(e) => setHasPool(e.target.checked)}
                   className="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
                 />
-                <span className="text-sm text-slate-700 group-hover:text-slate-900">
+                <span className="text-sm text-slate-700 group-hover:text-navy-950">
                   Has a pool or hot tub (+$1,800/yr)
                 </span>
               </label>
@@ -244,7 +248,7 @@ export default function HomeMaintenancePage() {
                   onChange={(e) => setHasOldRoof(e.target.checked)}
                   className="w-5 h-5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
                 />
-                <span className="text-sm text-slate-700 group-hover:text-slate-900">
+                <span className="text-sm text-slate-700 group-hover:text-navy-950">
                   Roof is 15+ years old (+$1,200/yr)
                 </span>
               </label>
@@ -274,7 +278,7 @@ export default function HomeMaintenancePage() {
                   <p className="text-sm font-medium text-slate-500">
                     Monthly Set-Aside
                   </p>
-                  <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+                  <p className="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-2">
                     {formatUSD(result.monthly)}
                   </p>
                   <p className="text-sm text-slate-400 mt-1">
@@ -297,7 +301,7 @@ export default function HomeMaintenancePage() {
               {/* Breakdown Table */}
               <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
                 <div className="px-6 py-5 border-b border-slate-100">
-                  <h3 className="text-lg font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-navy-950">
                     Where Your Money Goes
                   </h3>
                   <p className="text-sm text-slate-400 mt-1">
@@ -317,7 +321,7 @@ export default function HomeMaintenancePage() {
                         </span>
                       </div>
                       <div className="text-right">
-                        <span className="text-sm font-semibold text-slate-900">
+                        <span className="text-sm font-semibold text-navy-950">
                           {formatUSD(item.amount)}
                         </span>
                         <span className="text-xs text-slate-400 ml-2">
@@ -331,7 +335,7 @@ export default function HomeMaintenancePage() {
 
               {/* Bar chart visualization */}
               <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">
+                <h3 className="text-lg font-bold text-navy-950 mb-4">
                   Cost Distribution
                 </h3>
                 <div className="space-y-3">
@@ -423,5 +427,6 @@ export default function HomeMaintenancePage() {
         </p>
       </article>
     </div>
+    </>
   );
 }

@@ -1,81 +1,356 @@
 @import "tailwindcss";
 
 @theme {
-  --color-slate-950: #0a0f1a;
-  --color-slate-900: #111827;
-  --color-slate-800: #1e293b;
-  --color-slate-700: #334155;
-  --color-slate-600: #475569;
-  --color-slate-500: #64748b;
-  --color-slate-400: #94a3b8;
-  --color-slate-300: #cbd5e1;
-  --color-slate-200: #e2e8f0;
-  --color-slate-100: #f1f5f9;
+  /* ── Brand Palette ── */
+  --color-brand-50: #fff8ed;
+  --color-brand-100: #ffefd4;
+  --color-brand-200: #ffdba8;
+  --color-brand-300: #ffc170;
+  --color-brand-400: #ff9f37;
+  --color-brand-500: #ff8410;
+  --color-brand-600: #f06806;
+  --color-brand-700: #c74e07;
+  --color-brand-800: #9e3d0e;
+  --color-brand-900: #7f340f;
+
+  --color-navy-50: #f0f4fa;
+  --color-navy-100: #dde5f2;
+  --color-navy-200: #c2d0e8;
+  --color-navy-300: #98b2d8;
+  --color-navy-400: #688cc3;
+  --color-navy-500: #476db0;
+  --color-navy-600: #375695;
+  --color-navy-700: #2e4579;
+  --color-navy-800: #293c65;
+  --color-navy-900: #1a2744;
+  --color-navy-950: #0f1a2e;
+
+  --color-sage-50: #f4f9f4;
+  --color-sage-100: #e6f2e6;
+  --color-sage-200: #cee5cf;
+  --color-sage-300: #a6cea9;
+  --color-sage-400: #76b07b;
+  --color-sage-500: #53935a;
+  --color-sage-600: #407845;
+  --color-sage-700: #355f39;
+  --color-sage-800: #2d4d30;
+  --color-sage-900: #264029;
+
+  --color-warm-50: #faf8f5;
+  --color-warm-100: #f3efe8;
+  --color-warm-200: #e8e0d3;
+  --color-warm-300: #d5c8b3;
+  --color-warm-400: #c0a98e;
+  --color-warm-500: #b09474;
+  --color-warm-600: #a38264;
+  --color-warm-700: #886a53;
+  --color-warm-800: #6f5746;
+  --color-warm-900: #5b483b;
+
   --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
 
-  --color-amber-500: #f59e0b;
-  --color-amber-400: #fbbf24;
-  --color-amber-600: #d97706;
-
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
   --color-emerald-500: #10b981;
   --color-emerald-600: #059669;
-  --color-emerald-400: #34d399;
-
+  --color-amber-500: #f59e0b;
   --color-blue-500: #3b82f6;
   --color-blue-600: #2563eb;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cal Sans', 'Inter', system-ui, sans-serif;
 }
 
+/* ── Base ── */
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Premium calculator input styling */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warm-50);
+  color: var(--color-navy-950);
+}
+
+::selection {
+  background-color: var(--color-brand-200);
+  color: var(--color-navy-950);
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--color-navy-950);
+}
+
+/* ── Premium Input Styling ── */
 .calc-input {
-  transition: all 0.2s ease;
-  border: 2px solid var(--color-slate-200);
-  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1.5px solid var(--color-slate-200);
+  border-radius: 0.625rem;
   padding: 0.75rem 1rem;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   width: 100%;
   background: white;
-  color: var(--color-slate-900);
+  color: var(--color-navy-950);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.calc-input:hover {
+  border-color: var(--color-slate-300);
 }
 
 .calc-input:focus {
   outline: none;
-  border-color: var(--color-amber-500);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+  border-color: var(--color-brand-500);
+  box-shadow: 0 0 0 3px rgba(255, 132, 16, 0.12), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-/* Smooth result animations */
-.result-card {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* ── Card System ── */
+.card {
+  background: white;
+  border-radius: 1rem;
+  border: 1px solid var(--color-slate-200);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.result-card:hover {
+.card:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 10px -4px rgba(0, 0, 0, 0.04);
+  border-color: var(--color-slate-300);
+}
+
+.card-elevated {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -2px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-elevated:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.1), 0 8px 16px -4px rgba(0, 0, 0, 0.06);
 }
 
-/* Calculator card grid */
-.calc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+/* ── Gradient Backgrounds ── */
+.bg-hero-gradient {
+  background: linear-gradient(135deg, var(--color-navy-950) 0%, var(--color-navy-900) 40%, #1e3a5f 100%);
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-amber-500), var(--color-emerald-500));
+.bg-section-warm {
+  background: linear-gradient(180deg, var(--color-warm-50) 0%, white 100%);
+}
+
+.bg-section-cool {
+  background: linear-gradient(180deg, var(--color-navy-50) 0%, var(--color-warm-50) 100%);
+}
+
+/* ── Accent Gradient Text ── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-brand-600) 50%, var(--color-sage-500) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ── Decorative Elements ── */
+.dotted-bg {
+  background-image: radial-gradient(circle, var(--color-slate-200) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.line-pattern {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(0, 0, 0, 0.015) 8px,
+    rgba(0, 0, 0, 0.015) 16px
+  );
+}
+
+/* ── Button Styles ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-brand-500);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.625rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 132, 16, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--color-brand-600);
+  box-shadow: 0 4px 12px rgba(255, 132, 16, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: var(--color-navy-900);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.625rem;
+  border: 1.5px solid var(--color-slate-200);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-brand-300);
+  background: var(--color-brand-50);
+  color: var(--color-brand-700);
+}
+
+/* ── Badge Styles ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-brand {
+  background: var(--color-brand-100);
+  color: var(--color-brand-700);
+}
+
+.badge-sage {
+  background: var(--color-sage-100);
+  color: var(--color-sage-700);
+}
+
+.badge-navy {
+  background: var(--color-navy-100);
+  color: var(--color-navy-700);
+}
+
+/* ── Section Spacing ── */
+.section {
+  padding: 5rem 0;
+}
+
+.section-lg {
+  padding: 7rem 0;
+}
+
+/* ── Prose styling for articles ── */
+.prose-brand h2 {
+  color: var(--color-navy-950);
+  font-size: 1.625rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.prose-brand h3 {
+  color: var(--color-navy-900);
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.prose-brand p {
+  color: var(--color-slate-600);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.prose-brand ul, .prose-brand ol {
+  color: var(--color-slate-600);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose-brand li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-brand strong {
+  color: var(--color-navy-900);
+  font-weight: 700;
+}
+
+.prose-brand a {
+  color: var(--color-brand-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-brand blockquote {
+  border-left: 4px solid var(--color-brand-300);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--color-slate-500);
+}
+
+/* ── Newsletter Form ── */
+.newsletter-input {
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 0.625rem;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.9375rem;
+  color: white;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--color-brand-400);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
 }

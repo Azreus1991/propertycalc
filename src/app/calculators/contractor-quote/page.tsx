@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 
 /* ────────────────────────────────────────────────────────
@@ -215,8 +216,8 @@ function getAssessment(pctFromMedian: number): {
     return {
       label: "Above Average",
       color: "text-amber-700",
-      bg: "bg-amber-50",
-      border: "border-amber-200",
+      bg: "bg-brand-50",
+      border: "border-brand-200",
       text: "text-amber-800",
       description:
         "This quote is higher than average. It could be justified by premium materials, a highly experienced crew, or included warranties. Ask the contractor to explain what drives the premium and whether any line items can be adjusted.",
@@ -315,11 +316,11 @@ export default function ContractorQuotePage() {
       {/* Page header */}
       <div className="max-w-3xl mb-12">
         <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-          <a href="/" className="hover:text-amber-600 transition-colors">Home</a>
+          <a href="/" className="hover:text-brand-600 transition-colors">Home</a>
           <span>/</span>
           <span className="text-slate-600">Contractor Quote Analyzer</span>
         </nav>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-navy-950">
           Contractor Quote Analyzer
         </h1>
         <p className="mt-4 text-lg text-slate-500 leading-relaxed">
@@ -331,8 +332,8 @@ export default function ContractorQuotePage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
         {/* Input Panel */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-7">
-          <h2 className="text-lg font-bold text-slate-900 mb-6">
+        <div className="lg:col-span-2 card p-7">
+          <h2 className="text-lg font-bold text-navy-950 mb-6">
             Quote Details
           </h2>
 
@@ -451,7 +452,7 @@ export default function ContractorQuotePage() {
                     <p className="text-sm text-slate-500">vs. Median</p>
                     <p
                       className={`text-xl font-bold ${
-                        result.pctFromMedian > 0 ? "text-amber-600" : "text-emerald-600"
+                        result.pctFromMedian > 0 ? "text-brand-600" : "text-emerald-600"
                       }`}
                     >
                       {result.pctFromMedian > 0 ? "+" : ""}
@@ -481,7 +482,7 @@ export default function ContractorQuotePage() {
                   <p className="text-sm font-medium text-slate-500">
                     Estimated Fair Range
                   </p>
-                  <p className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+                  <p className="text-2xl sm:text-3xl font-extrabold text-navy-950 mt-2">
                     {formatUSD(result.fairLow)} &ndash; {formatUSD(result.fairHigh)}
                   </p>
                   <p className="text-sm text-slate-400 mt-1">
@@ -491,8 +492,8 @@ export default function ContractorQuotePage() {
               </div>
 
               {/* Fairness Meter */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">
+              <div className="card p-6">
+                <h3 className="text-lg font-bold text-navy-950 mb-4">
                   Price Fairness Meter
                 </h3>
                 <div className="relative">
@@ -574,9 +575,9 @@ export default function ContractorQuotePage() {
               </div>
 
               {/* Per-unit Breakdown */}
-              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+              <div className="card overflow-hidden">
                 <div className="px-6 py-5 border-b border-slate-100">
-                  <h3 className="text-lg font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-navy-950">
                     Regional Price Breakdown
                   </h3>
                   <p className="text-sm text-slate-400 mt-1">
@@ -592,7 +593,7 @@ export default function ContractorQuotePage() {
                       </span>
                     </div>
                     <div className="text-right">
-                      <span className="text-sm font-semibold text-slate-900">
+                      <span className="text-sm font-semibold text-navy-950">
                         {formatUSD(result.lowPerUnit)}
                       </span>
                       <span className="text-xs text-slate-400 ml-1">
@@ -630,7 +631,7 @@ export default function ContractorQuotePage() {
                       </span>
                     </div>
                     <div className="text-right">
-                      <span className="text-sm font-semibold text-slate-900">
+                      <span className="text-sm font-semibold text-navy-950">
                         {formatUSD(result.highPerUnit)}
                       </span>
                       <span className="text-xs text-slate-400 ml-1">
@@ -644,7 +645,7 @@ export default function ContractorQuotePage() {
                   <div className="flex items-center justify-between px-6 py-3.5 bg-slate-50">
                     <div className="flex items-center gap-3">
                       <span className="text-lg">💰</span>
-                      <span className="text-sm font-bold text-slate-900">
+                      <span className="text-sm font-bold text-navy-950">
                         Your Quote
                       </span>
                     </div>
@@ -666,8 +667,8 @@ export default function ContractorQuotePage() {
               {/* Tips Sections */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Questions to Ask */}
-                <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">
+                <div className="card p-6">
+                  <h3 className="text-lg font-bold text-navy-950 mb-4">
                     Questions to Ask Your Contractor
                   </h3>
                   <ul className="space-y-3">
@@ -684,7 +685,7 @@ export default function ContractorQuotePage() {
                       "Will you provide lien waivers from subcontractors?",
                     ].map((q) => (
                       <li key={q} className="flex gap-2.5 text-sm text-slate-600">
-                        <span className="text-amber-500 mt-0.5 shrink-0">&#10003;</span>
+                        <span className="text-brand-500 mt-0.5 shrink-0">&#10003;</span>
                         <span>{q}</span>
                       </li>
                     ))}
@@ -692,8 +693,8 @@ export default function ContractorQuotePage() {
                 </div>
 
                 {/* Red Flags */}
-                <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">
+                <div className="card p-6">
+                  <h3 className="text-lg font-bold text-navy-950 mb-4">
                     Red Flags to Watch For
                   </h3>
                   <ul className="space-y-3">
@@ -730,7 +731,7 @@ export default function ContractorQuotePage() {
               </div>
             </>
           ) : (
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-12 text-center">
+            <div className="card p-12 text-center">
               <p className="text-slate-400">
                 Enter your project details and quote amount to see the analysis.
               </p>
