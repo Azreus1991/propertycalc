@@ -153,10 +153,10 @@ const trustSignals = [
 ];
 
 const stats = [
-  { value: "1,200+", label: "Verified Vendors" },
+  { value: "Growing", label: "Vendor Network" },
   { value: "50", label: "States Covered" },
-  { value: "15,000+", label: "Verified Reviews" },
-  { value: "98%", label: "Satisfaction Rate" },
+  { value: "Verified", label: "Reviews Only" },
+  { value: "Vetted", label: "Every Vendor" },
 ];
 
 const listingTiers = [
@@ -447,11 +447,11 @@ export default function VendorsPage() {
 
                 {/* Buttons */}
                 <div className="flex gap-2 mt-5">
-                  <Link href="/vendors" className="btn-primary text-sm flex-1 text-center">
+                  <Link href="/auth/register" className="btn-primary text-sm flex-1 text-center">
                     Get a Quote
                   </Link>
                   <Link
-                    href="/vendors"
+                    href="/services"
                     className="btn-secondary text-sm flex-1 text-center"
                   >
                     View Profile
@@ -462,8 +462,8 @@ export default function VendorsPage() {
           </div>
 
           <div className="text-center mt-10">
-            <Link href="/vendors" className="btn-secondary inline-flex items-center gap-2">
-              View All 1,200+ Vendors
+            <Link href="/services" className="btn-secondary inline-flex items-center gap-2">
+              View All Vendors
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -596,10 +596,10 @@ export default function VendorsPage() {
               </ul>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-3">
-                <Link href="/vendors" className="btn-primary text-center">
+                <Link href="/auth/register" className="btn-primary text-center">
                   Register Your Business
                 </Link>
-                <Link href="/vendors" className="btn-secondary text-center">
+                <Link href="/pricing" className="btn-secondary text-center">
                   View Pricing Details
                 </Link>
               </div>

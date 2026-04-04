@@ -287,14 +287,9 @@ export default function MarketReportsPage() {
             on the first Tuesday of every month. Free forever.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="you@email.com"
-              className="w-full sm:flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-navy-300 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent"
-            />
-            <button className="btn-primary whitespace-nowrap w-full sm:w-auto">Subscribe Free</button>
+            <Link href="/auth/register" className="btn-primary whitespace-nowrap">Create Free Account</Link>
           </div>
-          <p className="text-xs text-navy-300 mt-4">No spam. Unsubscribe anytime. We never share your email.</p>
+          <p className="text-xs text-navy-300 mt-4">Sign up to get notified when new reports are published.</p>
         </div>
       </section>
 
@@ -329,7 +324,7 @@ export default function MarketReportsPage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/pro" className="btn-primary">
+              <Link href="/pricing" className="btn-primary">
                 Upgrade to Pro
               </Link>
             </div>

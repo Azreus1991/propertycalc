@@ -1,24 +1,26 @@
 import Link from "next/link";
 
 const calculatorLinks = [
-  { name: "Maintenance Budget Estimator", href: "/calculators/home-maintenance" },
+  { name: "Mortgage Calculator", href: "/calculators/mortgage" },
   { name: "Rental Property ROI", href: "/calculators/rental-roi" },
-  { name: "Contractor Quote Analyzer", href: "/calculators/contractor-quote" },
-  { name: "Paint Cost Estimator", href: "/calculators/paint-estimator" },
-  { name: "Roof Repair vs Replace", href: "/calculators/roof-calculator" },
+  { name: "Rent vs Buy", href: "/calculators/rent-vs-buy" },
+  { name: "Property Tax", href: "/calculators/property-tax" },
+  { name: "Renovation ROI", href: "/calculators/renovation-roi" },
+  { name: "All Calculators", href: "/calculators" },
 ];
 
-const resourceLinks = [
-  { name: "Resource Library", href: "/resources" },
-  { name: "Homeowner Guides", href: "/guides" },
-  { name: "Vendor Directory", href: "/vendors" },
-  { name: "Newsletter", href: "/newsletter" },
+const platformLinks = [
+  { name: "Deal Marketplace", href: "/deals" },
+  { name: "Services Network", href: "/services" },
+  { name: "Arbitrage Paths", href: "/arbitrage" },
+  { name: "Blog", href: "/blog" },
+  { name: "Guides", href: "/guides" },
 ];
 
 const companyLinks = [
-  { name: "About PropertyCalc", href: "/about" },
-  { name: "Our Methodology", href: "/about#methodology" },
-  { name: "Contact Us", href: "/about#contact" },
+  { name: "About", href: "/about" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Support", href: "/support" },
   { name: "Privacy Policy", href: "/privacy" },
   { name: "Terms of Service", href: "/terms" },
 ];
@@ -30,35 +32,21 @@ export function Footer() {
       <div className="bg-hero-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="badge badge-brand mb-4 mx-auto">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l12.15-12.15z" />
-              </svg>
-              Free Weekly Tips
-            </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Property insights, delivered weekly
+              Ready to get started?
             </h3>
             <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-lg mx-auto">
-              Join thousands of homeowners and investors getting maintenance tips,
-              market insights, and money-saving strategies every Thursday.
+              Create a free account to submit deals, track your portfolio,
+              access the services marketplace, and use all 12+ calculators.
             </p>
-            <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="newsletter-input flex-1"
-              />
-              <button
-                type="submit"
-                className="bg-brand-500 hover:bg-brand-400 text-white font-semibold px-6 py-3 rounded-[0.625rem] transition-all shadow-lg shadow-brand-500/25 hover:shadow-brand-400/35 shrink-0"
-              >
-                Subscribe Free
-              </button>
-            </form>
-            <p className="mt-3 text-xs text-slate-400">
-              No spam. Unsubscribe anytime. We respect your inbox.
-            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
+              <Link href="/auth/register" className="bg-brand-500 hover:bg-brand-400 text-white font-semibold px-6 py-3 rounded-[0.625rem] transition-all shadow-lg shadow-brand-500/25 hover:shadow-brand-400/35 text-center">
+                Create Free Account
+              </Link>
+              <Link href="/calculators" className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-[0.625rem] transition-all text-center">
+                Explore Calculators
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -80,59 +68,31 @@ export function Footer() {
                 </span>
               </Link>
               <p className="mt-4 text-sm text-slate-400 leading-relaxed max-w-xs">
-                The most comprehensive free property toolkit on the web. Built for
-                homeowners, landlords, investors, and property managers who want to
-                make smarter decisions backed by real data.
+                The real estate operating system. Free calculators, deal sourcing,
+                investor matching, services marketplace, and portfolio tracking —
+                built for every role in real estate.
               </p>
-              <div className="flex gap-3 mt-6">
-                {/* Social placeholders */}
-                {["X (Twitter)", "Facebook", "LinkedIn"].map((platform) => (
-                  <span
-                    key={platform}
-                    className="w-9 h-9 rounded-lg bg-navy-900 hover:bg-navy-800 flex items-center justify-center text-slate-400 hover:text-brand-400 transition-colors cursor-pointer"
-                    title={platform}
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-                    </svg>
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* Calculators */}
             <div className="lg:col-span-3">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-300 mb-5">
-                Calculators
-              </h4>
+              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-300 mb-5">Calculators</h4>
               <ul className="space-y-3">
                 {calculatorLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-slate-400 hover:text-brand-400 transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    <Link href={link.href} className="text-sm text-slate-400 hover:text-brand-400 transition-colors">{link.name}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Resources */}
+            {/* Platform */}
             <div className="lg:col-span-2">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-300 mb-5">
-                Resources
-              </h4>
+              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-300 mb-5">Platform</h4>
               <ul className="space-y-3">
-                {resourceLinks.map((link) => (
+                {platformLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-slate-400 hover:text-brand-400 transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    <Link href={link.href} className="text-sm text-slate-400 hover:text-brand-400 transition-colors">{link.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -140,18 +100,11 @@ export function Footer() {
 
             {/* Company */}
             <div className="lg:col-span-3">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-300 mb-5">
-                Company
-              </h4>
+              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-slate-300 mb-5">Company</h4>
               <ul className="space-y-3">
                 {companyLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-slate-400 hover:text-brand-400 transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    <Link href={link.href} className="text-sm text-slate-400 hover:text-brand-400 transition-colors">{link.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -163,7 +116,7 @@ export function Footer() {
         <div className="border-t border-navy-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-xs text-slate-500">
-              &copy; {new Date().getFullYear()} PropertyCalc. All rights reserved. Built with care for property owners everywhere.
+              &copy; {new Date().getFullYear()} PropertyCalc. All rights reserved.
             </p>
             <p className="text-xs text-slate-500">
               Calculations are estimates only. Always consult a licensed professional for major financial decisions.

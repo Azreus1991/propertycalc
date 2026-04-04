@@ -108,24 +108,18 @@ const courses = [
   },
 ];
 
-const instructors = [
+const whyLearn = [
   {
-    name: "Marcus Chen",
-    initials: "MC",
-    credentials: "CPA, Real Estate Investor — 120+ Units",
-    bio: "Former Big Four accountant turned full-time investor. Specializes in tax optimization and multi-family acquisitions across the Sun Belt.",
+    title: "Practical, Not Theoretical",
+    desc: "Every course is built around real deals, real numbers, and real outcomes — not textbook scenarios.",
   },
   {
-    name: "Rachel Dominguez",
-    initials: "RD",
-    credentials: "Licensed Broker, Property Manager — 15 Years",
-    bio: "Manages 400+ rental units across three states. Known for systemizing landlording so owners can scale without burning out.",
+    title: "Self-Paced Learning",
+    desc: "Start, stop, and revisit lessons on your schedule. No deadlines, no pressure.",
   },
   {
-    name: "James Okafor",
-    initials: "JO",
-    credentials: "General Contractor, House Flipper — 80+ Flips",
-    bio: "Started flipping houses in 2012 with a $30K loan. Now runs a renovation company and teaches the systems behind consistent flip profits.",
+    title: "Free & Pro Options",
+    desc: "Core courses are completely free. Pro courses go deeper with advanced strategies and tools.",
   },
 ];
 
@@ -195,7 +189,7 @@ export default function LearnPage() {
           {courses.map((course) => (
             <Link
               key={course.slug}
-              href={`/learn/${course.slug}`}
+              href="/learn"
               className="card group p-6 hover:border-brand-200 flex flex-col"
             >
               <div className="flex items-center gap-2 mb-3 flex-wrap">
@@ -267,13 +261,13 @@ export default function LearnPage() {
               and a private community of serious investors and property owners.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="btn-primary flex items-center gap-2">
+              <Link href="/pricing" className="btn-primary flex items-center gap-2">
                 Start Pro — $19/month
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-              </button>
-              <span className="text-sm text-slate-400">Cancel anytime. 7-day free trial.</span>
+              </Link>
+              <span className="text-sm text-slate-400">Cancel anytime. 14-day free trial.</span>
             </div>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500">
               <span className="flex items-center gap-1.5">
@@ -304,27 +298,22 @@ export default function LearnPage() {
           </div>
         </section>
 
-        {/* Instructor Spotlights */}
+        {/* Why Learn With Us */}
         <section className="mb-16">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-navy-950">
-              Learn from the best
+              Why learn with PropertyCalc
             </h2>
             <p className="mt-3 text-slate-500 max-w-xl mx-auto">
-              Our instructors are active practitioners with real portfolios, not just theory.
-              They teach what they do every day.
+              Courses built by practitioners, designed for people who want results — not credentials.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {instructors.map((inst) => (
-              <div key={inst.initials} className="card p-6 text-center">
-                <div className="w-16 h-16 rounded-full bg-navy-100 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-black text-navy-700">{inst.initials}</span>
-                </div>
-                <h3 className="text-lg font-bold text-navy-950">{inst.name}</h3>
-                <p className="text-xs font-medium text-brand-600 mt-1">{inst.credentials}</p>
-                <p className="mt-3 text-sm text-slate-500 leading-relaxed">{inst.bio}</p>
+            {whyLearn.map((item) => (
+              <div key={item.title} className="card p-6">
+                <h3 className="text-lg font-bold text-navy-950 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

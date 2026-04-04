@@ -244,11 +244,11 @@ export default function TemplatesPage() {
 
           <div className="card-elevated p-8 sm:p-10 max-w-lg mx-auto mb-8">
             <div className="flex items-baseline justify-center gap-1 mb-2">
-              <span className="text-4xl font-extrabold text-navy-900">$9</span>
+              <span className="text-4xl font-extrabold text-navy-900">$19</span>
               <span className="text-navy-400 font-medium">/month</span>
             </div>
             <p className="text-sm text-navy-500 mb-6">
-              Billed annually at $108/year. Cancel anytime.
+              Billed annually at $180/year (save 20%). Cancel anytime.
             </p>
             <ul className="space-y-3 text-left mb-8">
               {[
@@ -267,7 +267,7 @@ export default function TemplatesPage() {
                 </li>
               ))}
             </ul>
-            <button className="btn-primary w-full text-center">Start Free 7-Day Trial</button>
+            <Link href="/pricing" className="btn-primary w-full text-center block">Start Free 14-Day Trial</Link>
           </div>
 
           <p className="text-sm text-navy-300">

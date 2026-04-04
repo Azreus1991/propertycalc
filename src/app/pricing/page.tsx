@@ -53,7 +53,7 @@ const tiers = [
       { text: "Email support", included: true },
     ],
     cta: "Start 14-Day Free Trial",
-    href: "#",
+    href: "/auth/register",
     highlighted: true,
   },
   {
@@ -77,7 +77,7 @@ const tiers = [
       { text: "Dedicated account manager", included: true },
     ],
     cta: "Contact Sales",
-    href: "#",
+    href: "/support",
     highlighted: false,
   },
 ];
@@ -235,7 +235,7 @@ export default function PricingPage() {
               Start making smarter property decisions today
             </h2>
             <p className="mt-3 text-slate-300 max-w-lg mx-auto">
-              Join 50,000+ homeowners and investors already using PropertyCalc.
+              Start using PropertyCalc today — free forever.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <Link href="/calculators" className="btn-primary">

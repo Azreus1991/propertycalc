@@ -194,7 +194,7 @@ export default function BlogPage() {
         {/* Featured Post */}
         <div className="mb-12">
           <Link
-            href={`/blog/${featuredPost.slug}`}
+            href="/blog"
             className="card group block p-8 sm:p-10 hover:border-brand-200"
           >
             <div className="flex items-center gap-3 mb-4">
@@ -231,7 +231,7 @@ export default function BlogPage() {
           {posts.map((post) => (
             <Link
               key={post.slug}
-              href={`/blog/${post.slug}`}
+              href="/blog"
               className="card group p-6 hover:border-brand-200 flex flex-col"
             >
               <div className="flex items-center gap-2 mb-3">
@@ -262,13 +262,12 @@ export default function BlogPage() {
           <h3 className="text-2xl font-extrabold text-navy-950">Never miss an article</h3>
           <p className="mt-2 text-slate-500 max-w-lg mx-auto">
             Get our best property insights delivered to your inbox every Monday and Thursday.
-            Join 15,000+ homeowners and investors.
+            Join our growing community of homeowners and investors.
           </p>
-          <form className="mt-6 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input type="email" placeholder="Enter your email" className="calc-input flex-1 !bg-white" />
-            <button type="submit" className="btn-primary shrink-0">Subscribe Free</button>
-          </form>
-          <p className="mt-3 text-xs text-slate-400">No spam. Unsubscribe anytime.</p>
+          <div className="mt-6 flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
+            <Link href="/auth/register" className="btn-primary">Create Free Account</Link>
+          </div>
+          <p className="mt-3 text-xs text-slate-400">Get notified when new articles are published.</p>
         </div>
       </div>
     </>

@@ -146,7 +146,7 @@ export default function ListingsPage() {
           <div className="flex flex-wrap items-center gap-8 text-sm">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-500" />
-              <span className="font-semibold text-white">2,500+</span>
+              <span className="font-semibold text-white">Browse</span>
               <span className="text-slate-400">Active Listings</span>
             </div>
             <div className="flex items-center gap-2">
@@ -288,7 +288,7 @@ export default function ListingsPage() {
 
                 <div className="mt-auto pt-4">
                   <Link
-                    href={`/listings/${listing.slug}`}
+                    href="/listings"
                     className="btn-primary w-full text-center flex items-center justify-center gap-2 text-sm"
                   >
                     View Details
@@ -349,7 +349,7 @@ export default function ListingsPage() {
                     30-day listing period
                   </li>
                 </ul>
-                <button className="btn-secondary w-full mt-6">List for Free</button>
+                <Link href="/auth/register" className="btn-secondary w-full mt-6 text-center block">List for Free</Link>
               </div>
 
               {/* Featured Plan */}
@@ -392,7 +392,7 @@ export default function ListingsPage() {
                     Featured badge & highlighted card
                   </li>
                 </ul>
-                <button className="btn-primary w-full mt-6">Get Featured</button>
+                <Link href="/auth/register" className="btn-primary w-full mt-6 text-center block">Get Featured</Link>
               </div>
             </div>
           </div>

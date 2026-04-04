@@ -189,12 +189,12 @@ export default function JobsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="grid grid-cols-3 gap-6 text-center sm:text-left sm:flex sm:items-center sm:gap-12">
             <div>
-              <p className="text-2xl sm:text-3xl font-black text-white">500+</p>
-              <p className="text-xs sm:text-sm text-slate-400">Active Jobs</p>
+              <p className="text-2xl sm:text-3xl font-black text-white">10+</p>
+              <p className="text-xs sm:text-sm text-slate-400">Categories</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-black text-white">200+</p>
-              <p className="text-xs sm:text-sm text-slate-400">Companies Hiring</p>
+              <p className="text-2xl sm:text-3xl font-black text-white">New</p>
+              <p className="text-xs sm:text-sm text-slate-400">Listings Daily</p>
             </div>
             <div>
               <p className="text-2xl sm:text-3xl font-black text-white">50</p>
@@ -277,7 +277,7 @@ export default function JobsPage() {
                   </p>
                 </div>
                 <div className="sm:ml-6 shrink-0">
-                  <button className="btn-primary w-full sm:w-auto">Apply Now</button>
+                  <Link href="/auth/register" className="btn-primary w-full sm:w-auto text-center">Apply Now</Link>
                 </div>
               </div>
             </div>
@@ -286,12 +286,12 @@ export default function JobsPage() {
 
         {/* Load More */}
         <div className="text-center mt-8">
-          <button className="btn-secondary">
-            View All 500+ Jobs
+          <Link href="/auth/register" className="btn-secondary inline-flex items-center">
+            View All Jobs
             <svg className="w-4 h-4 ml-1.5 inline" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -347,7 +347,7 @@ export default function JobsPage() {
                 </div>
               </div>
               <div className="mt-8">
-                <Link href="/jobs/post" className="btn-primary">
+                <Link href="/support" className="btn-primary">
                   Post a Job
                   <svg className="w-4 h-4 ml-1.5 inline" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -356,24 +356,24 @@ export default function JobsPage() {
               </div>
             </div>
             <div className="card p-8 sm:p-10 text-center bg-white">
-              <div className="text-5xl font-black text-gradient mb-2">50,000+</div>
-              <p className="text-slate-500 font-medium">property professionals visit PropertyCalc monthly</p>
+              <div className="text-5xl font-black text-gradient mb-2">50</div>
+              <p className="text-slate-500 font-medium">states covered with property industry jobs</p>
               <div className="mt-8 grid grid-cols-2 gap-4 text-left">
                 <div className="bg-warm-50 rounded-xl p-4">
-                  <p className="text-2xl font-bold text-navy-950">87%</p>
-                  <p className="text-xs text-slate-500 mt-1">of listings get applicants within 48 hours</p>
-                </div>
-                <div className="bg-warm-50 rounded-xl p-4">
-                  <p className="text-2xl font-bold text-navy-950">12 days</p>
-                  <p className="text-xs text-slate-500 mt-1">average time to fill a position</p>
-                </div>
-                <div className="bg-warm-50 rounded-xl p-4">
-                  <p className="text-2xl font-bold text-navy-950">4.8/5</p>
-                  <p className="text-xs text-slate-500 mt-1">employer satisfaction rating</p>
-                </div>
-                <div className="bg-warm-50 rounded-xl p-4">
-                  <p className="text-2xl font-bold text-navy-950">35+</p>
+                  <p className="text-2xl font-bold text-navy-950">10+</p>
                   <p className="text-xs text-slate-500 mt-1">job categories covered</p>
+                </div>
+                <div className="bg-warm-50 rounded-xl p-4">
+                  <p className="text-2xl font-bold text-navy-950">Daily</p>
+                  <p className="text-xs text-slate-500 mt-1">new listings added</p>
+                </div>
+                <div className="bg-warm-50 rounded-xl p-4">
+                  <p className="text-2xl font-bold text-navy-950">Free</p>
+                  <p className="text-xs text-slate-500 mt-1">to browse and apply</p>
+                </div>
+                <div className="bg-warm-50 rounded-xl p-4">
+                  <p className="text-2xl font-bold text-navy-950">$29</p>
+                  <p className="text-xs text-slate-500 mt-1">to post a standard listing</p>
                 </div>
               </div>
             </div>
@@ -403,35 +403,11 @@ export default function JobsPage() {
               Never miss the perfect opportunity. Tell us what you&apos;re looking for and
               we&apos;ll send a curated digest of matching jobs every Wednesday morning.
             </p>
-            <form className="mt-8 max-w-xl mx-auto">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="calc-input flex-1 !bg-white"
-                />
-                <button type="submit" className="btn-primary shrink-0">
-                  Get Job Alerts
-                </button>
-              </div>
-              <div className="flex flex-wrap gap-2 justify-center mt-4">
-                {["Property Management", "Maintenance", "Real Estate", "Construction"].map(
-                  (tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full text-xs font-medium bg-warm-100 text-slate-500 cursor-pointer hover:bg-warm-200 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  )
-                )}
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-warm-100 text-slate-400 cursor-pointer hover:bg-warm-200 transition-colors">
-                  + More
-                </span>
-              </div>
-            </form>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/auth/register" className="btn-primary">Create Free Account</Link>
+            </div>
             <p className="mt-4 text-xs text-slate-400">
-              Free forever. Unsubscribe with one click. We never share your email.
+              Sign up to get notified about new job postings in your area.
             </p>
           </div>
         </div>
